@@ -1,0 +1,18 @@
+[workspace]
+resolver = "2"
+members = [
+    "00-hello",
+    "01-variables",
+    "02-control-flow",
+    "03-ownership",
+    "04-struct-enum",
+    "05-error-handling",
+    "06-collections",
+    "07-iterators-closures",
+    "08-generics-traits",
+    "09-lifetimes",
+    "10-smart-pointers",
+    "11-concurrency",
+    "12-async",
+    "13-mini-grep",
+]
