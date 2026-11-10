@@ -17,7 +17,7 @@
 | CPU / 内存 | Intel i9-9880H，8 核 16 线程，32 GB | ✅ 编译 Rust 很够用，`cargo build -j16` 无压力 |
 | 磁盘 | 932 GB，剩 357 GB | ✅ target 目录动辄几个 GB，无风险 |
 | 命令行工具 | Xcode Command Line Tools 15.5，SDK 在 `/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk` | ✅ 链接器正常（hello world 3.1 秒编译通过） |
-| Rust 工具链 | **已装 rustc/cargo 1.94.1**，stable-x86_64-apple-darwin | ✅ 不用重装，只差镜像配置 |
+| Rust 工具链 | **已装 rustc/cargo 1.99.1**（2026-10 更新），stable-x86_64-apple-darwin | ✅ 不用重装，只差镜像配置 |
 | 组件 | clippy / rustfmt / rust-src / rust-analyzer 全有 | ✅ 开箱即用 |
 | 包缓存 | `~/.cargo` 390 MB，423 个 crate（以前编过 Tauri 项目） | ✅ 说明已能编译大中型项目 |
 | 编辑器 | VS Code、Cursor、IntelliJ IDEA 都在，`cursor` 命令可用 | ✅ 装个 rust-analyzer 插件即可 |
@@ -230,7 +230,7 @@ cargo build --offline
 
 1. **镜像同步延迟**：刚发布的 crate 版本镜像上可能 404。等 3–10 分钟，或临时用官方源 `cargo add foo@=1.2.3`。
 2. **索引损坏**：删掉 `~/.cargo/registry/index/` 下对应镜像目录（如 `rsproxy.cn-*`）再重试；`cargo clean` 只清 target，不清索引。
-3. **sparse 协议要求 cargo ≥ 1.68**：你是 1.94，无影响；老 CI 镜像要注意。
+3. **sparse 协议要求 cargo ≥ 1.68**：你是 1.99，无影响；老 CI 镜像要注意。
 4. **同一 registry 定义两次**会直接报错（见 Step 1 的坑）。
 5. **代理与镜像打架**：设了 `https_proxy` 又配镜像，流量会先绕代理再到镜像，反而更慢。先 `env | grep -i proxy` 排查。
 6. **`cargo install` 很慢**：它要完整编译。优先用 `cargo binstall`（直接下 GitHub Release 预编译包），或干脆不装。
